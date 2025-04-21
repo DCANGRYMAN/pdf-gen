@@ -1,4 +1,3 @@
-// email-pdf.component.ts
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
@@ -24,7 +23,7 @@ export class EmailPdfComponent implements OnInit {
     this.store.dispatch(loadEmailTemplate());
   }
 
-// email-pdf.component.ts
+
 generatePDF(content: HTMLElement) {
   import('html2pdf.js').then(html2pdf => {
     html2pdf.default().from(content).save();

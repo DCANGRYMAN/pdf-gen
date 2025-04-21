@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const jwtToken = 'fake-jwt-token-123'; // Aqui você pode colocar um token dinâmico se quiser
+    const jwtToken = 'fake-jwt-token-123';
 
     const cloned = req.clone({
       setHeaders: {

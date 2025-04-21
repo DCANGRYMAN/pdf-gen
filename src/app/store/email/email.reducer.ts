@@ -1,4 +1,3 @@
-// store/email/email.reducer.ts
 import { createReducer, on } from '@ngrx/store';
 import { loadEmailTemplateSuccess } from './email.actions';
 import { EmailTemplateState } from './email.model';

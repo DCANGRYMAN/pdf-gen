@@ -1,4 +1,3 @@
-// store/email/email.actions.ts
 import { createAction, props } from '@ngrx/store';
 
 export const loadEmailTemplate = createAction('[Email] Load');

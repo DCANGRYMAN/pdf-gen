@@ -1,4 +1,3 @@
-// src/app/user/user.component.ts
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectEmailHTML } from '../../store/email/email.selector';
