@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { loadEmailTemplate } from '../../store/email/email.actions';
-import { selectEmailHTML } from '../../store/email/email.selector'
+import { selectEmailHTML } from '../../store/email/email.selector';
 
 @Component({
   selector: 'app-email-pdf',
@@ -23,11 +23,9 @@ export class EmailPdfComponent implements OnInit {
     this.store.dispatch(loadEmailTemplate());
   }
 
-
-generatePDF(content: HTMLElement) {
-  import('html2pdf.js').then(html2pdf => {
-    html2pdf.default().from(content).save();
-  });
-}
-
+  generatePDF(content: HTMLElement) {
+    import('html2pdf.js').then((html2pdf) => {
+      html2pdf.default().from(content).save();
+    });
+  }
 }

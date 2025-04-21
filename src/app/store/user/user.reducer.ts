@@ -1,3 +1,4 @@
+
 import { createReducer, on } from '@ngrx/store';
 import { UserActions } from './user.actions';
 import { User } from './user.interface';
@@ -22,7 +23,7 @@ export const userReducer = createReducer(
   on(UserActions.loadUserSuccess, (state, { user }) => ({
     ...state,
     user,
-    error: null
+    error: false
   })),
   on(UserActions.loadUserFailure, (state, { error }) => ({
     ...state,

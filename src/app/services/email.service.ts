@@ -1,4 +1,3 @@
-// services/email.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
@@ -25,7 +24,6 @@ export class EmailService {
 
     return this.http.post<any>(this.apiUrl, body, { headers }).pipe(
       map(response => {
-        // Aqui simulamos que a "resposta da API" contém o HTML gerado
         return `
           <div style="padding: 20px; font-family: sans-serif;">
             <h1>Hello, User #${userId}!</h1>

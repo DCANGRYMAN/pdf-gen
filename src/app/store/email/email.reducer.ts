@@ -1,13 +1,25 @@
+// email.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import { loadEmailTemplateSuccess } from './email.actions';
-import { EmailTemplateState } from './email.model';
-
-const initialState: EmailTemplateState = {
-  html: null,
-};
+import * as EmailActions from './email.actions';
+import { EmailTemplateState, initialState } from './email.interface';
 
 export const emailReducer = createReducer(
   initialState,
-  on(loadEmailTemplateSuccess, (state, { html }) => ({ ...state, html }))
+  on(EmailActions.loadEmailTemplate, (state) => ({
+    ...state,
+    loading: true,
+    error: null,
+  })),
+  on(EmailActions.loadEmailTemplateSuccess, (state, { html }) => ({
+    ...state,
+    html,
+    loading: false,
+    error: null,
+  })),
+  on(EmailActions.loadEmailTemplateFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
+  on(EmailActions.resetEmailTemplate, () => initialState)
 );
-
