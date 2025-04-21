@@ -1,15 +1,32 @@
+// user.reducer.ts
 import { createReducer, on } from '@ngrx/store';
-import * as UserActions from './user.actions';
+import { UserActions } from './user.actions';
+import { User } from './user.interface';
 
 export interface UserState {
-  user: { id: string; name: string; email: string } | null;
+  user: User | null;
+  error: any | null;
 }
 
 export const initialState: UserState = {
-  user: null,
+  user: {
+    id: '3409583403',
+    name: 'Darlan',
+    email: 'darlan@email.com'
+  },
+  error: null,
 };
+
 
 export const userReducer = createReducer(
   initialState,
-  on(UserActions.loadUserSuccess, (state, { user }) => ({ ...state, user }))
+  on(UserActions.loadUserSuccess, (state, { user }) => ({
+    ...state,
+    user,
+    error: null
+  })),
+  on(UserActions.loadUserFailure, (state, { error }) => ({
+    ...state,
+    error
+  }))
 );

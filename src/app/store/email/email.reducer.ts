@@ -11,3 +11,4 @@ export const emailReducer = createReducer(
   initialState,
   on(loadEmailTemplateSuccess, (state, { html }) => ({ ...state, html }))
 );
+
