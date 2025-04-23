@@ -1,7 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { selectEmailHTML } from '../../store/email/email.selector';
-import { EmailPdfComponent } from '../pdf-generator/pdf-generator.component';
+import { EmailTemplateComponent } from '../email-template/email-template.component';
 import { loadEmailTemplate } from '../../store/email/email.actions';
 import { CommonModule } from '@angular/common';
 import { UserActions } from '../../store/user/user.actions';
@@ -9,10 +9,10 @@ import { UserActions } from '../../store/user/user.actions';
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule, EmailPdfComponent],
+  imports: [CommonModule, EmailTemplateComponent],
   template: `
     <div>
-        <app-email-pdf></app-email-pdf>
+        <app-email-template></app-email-template>
     </div>
   `,
 })
