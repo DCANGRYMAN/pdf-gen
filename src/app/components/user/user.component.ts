@@ -1,18 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { selectEmailHTML } from '../../store/email/email.selector';
-import { EmailTemplateComponent } from '../email-template/email-template.component';
 import { loadEmailTemplate } from '../../store/email/email.actions';
-import { CommonModule } from '@angular/common';
+import { selectEmailHTML } from '../../store/email/email.selector';
 import { UserActions } from '../../store/user/user.actions';
+
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule, EmailTemplateComponent],
+  imports: [CommonModule],
   template: `
     <div>
-        <app-email-template></app-email-template>
+      <h1>User Component</h1>
     </div>
   `,
 })

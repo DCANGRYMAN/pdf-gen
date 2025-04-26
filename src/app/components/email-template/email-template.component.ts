@@ -1,35 +1,30 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-email-template',
   standalone: true,
-  imports: [CommonModule, HttpClientModule],
+  imports: [CommonModule],
   template: `
-    <div *ngIf="html">
-      <a [href]="generatedLink" target="_blank">Abrir Template</a>
-    </div>
+    <a
+      *ngIf="input" 
+      [href]="input"
+      target="_blank"
+      style="cursor: pointer;"
+    >
+      Abrir Template
+    </a>
   `,
 })
-export class EmailTemplateComponent implements OnInit {
-  private http = inject(HttpClient);
-  html: string | null = null;
-  generatedLink: string | null = null;
+export class EmailTemplateComponent {
+  @Input() input?: string | null; 
+  @Output() output = new EventEmitter<string>();
 
-  ngOnInit() {
-    this.http
-      .get('assets/template.html', { responseType: 'text' })
-      .subscribe((data) => {
-        this.html = data;
-        const blob = new Blob([this.html], { type: 'text/html' });
-        this.generatedLink = URL.createObjectURL(blob);
-      });
+  constructor() {
+    console.log(this.input);
   }
 
-  ngOnDestroy() {
-    if (this.generatedLink) {
-      URL.revokeObjectURL(this.generatedLink);
-    }
+  emitOutput() {
+    this.output.emit('Output data');
   }
 }
