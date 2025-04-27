@@ -9,11 +9,12 @@ import {
 } from '../../store/email/email.selector';
 import { CommonModule } from '@angular/common';
 import { ManagerService } from '../../services/manager.service';
+import { SimpleTestComponent } from "../signal-test/simple-test.component";
 
 @Component({
   selector: 'app-email-template-container',
   standalone: true,
-  imports: [CommonModule, EmailTemplateComponent],
+  imports: [CommonModule, EmailTemplateComponent, SimpleTestComponent],
   template: `
     <ng-container *ngIf="generatedLink; else loading">
       <app-email-template
@@ -29,6 +30,8 @@ import { ManagerService } from '../../services/manager.service';
     <ng-container *ngIf="error$ | async as error">
       <p>{{ error }}</p>
     </ng-container>
+    <br>
+    <app-simple-test></app-simple-test>
   `,
 })
 export class EmailTemplateContainerComponent implements OnInit {

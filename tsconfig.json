@@ -11,6 +11,9 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
+  "angularCompilerOptions": {
+    "enableSignals": true
+  },
   "files": ["src/test.ts"],
   "include": ["src/**/*.spec.ts"]
 }
