@@ -6,23 +6,16 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <a
-      *ngIf="input" 
-      [href]="input"
-      target="_blank"
-      style="cursor: pointer;"
-    >
+    <a *ngIf="input" [href]="input" target="_blank" style="cursor: pointer;">
       Abrir Template
     </a>
   `,
 })
 export class EmailTemplateComponent {
-  @Input() input?: string | null; 
+  @Input() input?: string | null;
   @Output() output = new EventEmitter<string>();
 
-  constructor() {
-    console.log(this.input);
-  }
+  constructor() {}
 
   emitOutput() {
     this.output.emit('Output data');

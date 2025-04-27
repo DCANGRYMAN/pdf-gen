@@ -4,20 +4,20 @@ import { CommonModule } from '@angular/common';
   selector: 'app-message-container',
   standalone: true,
   imports: [CommonModule],
-  template: `<messages-component [input]="input" ($output)="getOutputEvent($event)"></messages-component>`,
+  template: `<messages-component
+    [input]="input"
+    ($output)="getOutputEvent($event)"
+  ></messages-component>`,
 })
 export class MessageContainerComponent implements OnInit {
+  input = 'Testing container component';
 
-  input = {};
+  ngOnInit(): void {
+    null;
+  }
 
-    ngOnInit(): void {
-        null;
-    }
-
-    getOutputEvent(event: any) {
-       console.log(event);
-       debugger
-    }
+  getOutputEvent(event: any) {
+    console.log(event);
+    debugger;
+  }
 }
-
-

@@ -9,7 +9,5 @@ export const loadEmailTemplateSuccess = createAction(
 
 export const loadEmailTemplateFailure = createAction(
   '[Email] Load Template Failure',
-  props<{ error: any }>()
+  props<{ error: string }>()
 );
-
-export const resetEmailTemplate = createAction('[Email] Reset Template');

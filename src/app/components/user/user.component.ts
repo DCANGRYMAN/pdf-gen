@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { loadEmailTemplate } from '../../store/email/email.actions';
-import { selectEmailHTML } from '../../store/email/email.selector';
+import { selectEmailHtml } from '../../store/email/email.selector';
 import { UserActions } from '../../store/user/user.actions';
 
 
@@ -10,15 +10,11 @@ import { UserActions } from '../../store/user/user.actions';
   selector: 'app-user',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div>
-      <h1>User Component</h1>
-    </div>
-  `,
+  template: ``,
 })
 export class UserComponent implements OnInit {
   private store = inject(Store);
-  emailHtml$ = this.store.select(selectEmailHTML);
+  emailHtml$ = this.store.select(selectEmailHtml);
 
   ngOnInit() {
     this.store.dispatch(UserActions.loadUser());

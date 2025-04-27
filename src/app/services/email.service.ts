@@ -33,4 +33,9 @@ export class EmailService {
       })
     );
   }
+
+  fetchTemplateFromAssets(): Observable<string> {
+    return this.http.get('/assets/template.html', { responseType: 'text' });
+  }
+
 }

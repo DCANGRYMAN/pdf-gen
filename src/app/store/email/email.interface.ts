@@ -1,4 +1,3 @@
-// email.interface.ts
 export interface EmailTemplateState {
   html: string | null;
   loading: boolean;
